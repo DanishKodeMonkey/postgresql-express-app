@@ -2,7 +2,6 @@ const { body, validationResult } = require('express-validator');
 
 const alphaErr = 'Must only contain letters';
 const lengthErr = 'Must be be between 1 and 10 letters';
-const emailErr = 'Must be an email';
 
 const validateUser = [
     // validation block
@@ -12,19 +11,6 @@ const validateUser = [
         .withMessage(`Username ${alphaErr}`)
         .isLength({ min: 1, max: 10 })
         .withMessage(`username ${lengthErr}`),
-    body('firstName')
-        .trim()
-        .isAlpha()
-        .withMessage(`First name ${alphaErr}`)
-        .isLength({ min: 1, max: 10 })
-        .withMessage(`First name ${lengthErr}`),
-    body('lastName')
-        .trim()
-        .isAlpha()
-        .withMessage(`Last name ${alphaErr}`)
-        .isLength({ min: 1, max: 10 })
-        .withMessage(`Last name ${lengthErr}`),
-    body('email').trim().isEmail().withMessage(`Email ${emailErr}`),
 ];
 
 exports.usersListGet = (req, res) => {
