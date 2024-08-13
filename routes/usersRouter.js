@@ -13,5 +13,5 @@ usersRouter.post('/new', usersController.usersCreatePost);
 usersRouter.get('/search', usersController.usersSearchGet);
 
 /* delete ALL */
-/* usersRouter.post('/delete', usersController.usersDeletePost); */
+usersRouter.get('/delete', usersController.usersDeleteGet);
 module.exports = usersRouter;

@@ -47,3 +47,8 @@ exports.usersSearchGet = asyncHandler(async (req, res) => {
     const results = await db.searchUsers(searchTerm);
     res.json(results);
 });
+
+exports.usersDeleteGet = asyncHandler(async (req, res) => {
+    const results = await db.deleteUsernames();
+    res.json(results);
+});

@@ -23,7 +23,6 @@ async function searchUsers(searchTerm) {
 
     try {
         const res = await pool.query(query, values);
-        console.log(res);
         return res.rows; // returns rows that match query
     } catch (err) {
         console.error('Error executing query', err.stack);
@@ -31,8 +30,18 @@ async function searchUsers(searchTerm) {
     }
 }
 
+async function deleteUsernames() {
+    try {
+        const res = await pool.query(`DROP TABLE usernames`);
+        return res.command;
+    } catch (err) {
+        console.error('Error dropping table', err.stack);
+        throw err;
+    }
+}
 module.exports = {
     getAllUsernames,
     insertUsername,
     searchUsers,
+    deleteUsernames,
 };
