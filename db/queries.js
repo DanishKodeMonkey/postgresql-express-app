@@ -17,7 +17,22 @@ async function insertUsername(username) {
     */
 }
 
+async function searchUsers(searchTerm) {
+    const query = 'SELECT username FROM usernames WHERE username ILIKE $1';
+    const values = [`%${searchTerm}%`];
+
+    try {
+        const res = await pool.query(query, values);
+        console.log(res);
+        return res.rows; // returns rows that match query
+    } catch (err) {
+        console.error('Error executing query', err.stack);
+        throw err;
+    }
+}
+
 module.exports = {
     getAllUsernames,
     insertUsername,
+    searchUsers,
 };

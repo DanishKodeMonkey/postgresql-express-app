@@ -41,3 +41,9 @@ exports.usersCreatePost = [
         res.redirect('/');
     }),
 ];
+
+exports.usersSearchGet = asyncHandler(async (req, res) => {
+    const searchTerm = req.query.username.trim().toLowerCase();
+    const results = await db.searchUsers(searchTerm);
+    res.json(results);
+});
