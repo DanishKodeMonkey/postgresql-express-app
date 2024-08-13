@@ -2,6 +2,8 @@
 
 This project is a simple Node.js and Express application that interacts with a PostgreSQL database. The app allows users to create, search, and delete usernames in a database. The views are rendered using the EJS templating engine, and the database operations are handled using the `pg` package.
 
+The project is meant as a point of reference towards conencting a postgreSQL database to a express application directly.
+
 ## Table of Contents
 
 -   [Configuration](#configuration)
